@@ -1,0 +1,24 @@
+<div id="hue">
+
+</div>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+  setTimeout(function() {
+    var source = new EventSource('/potato/potatoer');
+    source.addEventListener('new-order', function(e) {
+      var data = JSON.parse(e.data);
+      
+      console.log(data);
+
+      document.getElementById("hue").innerHTML = "";
+      for (var p in data) {
+        document.getElementById("hue").innerHTML += data[p].name + "<br>";
+      }
+    });
+  }, 1);
+});
+
+
+</script>
