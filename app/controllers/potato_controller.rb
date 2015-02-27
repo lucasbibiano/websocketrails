@@ -7,7 +7,6 @@ class PotatoController < ApplicationController
 
     loop do
       sse.write(Person.all.to_json)
-      sleep 5
     end
 
   ensure
